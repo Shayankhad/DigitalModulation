@@ -31,10 +31,8 @@ module Phase_Acc (
 
     always @(posedge clk or posedge rst) begin
         if (rst) begin
-            bit_count <= 3'd0;
-        end else if (clr_bit) begin
             bit_count <= 6'd0;
-        end else if (en_bit) begin
+        end else if (1) begin
             bit_count <= bit_count + 6'd1;
         end
     end
