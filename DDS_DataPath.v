@@ -1,5 +1,5 @@
 module DDS_Data_Path (
-    input clk , input rst , reg output [7:0] out
+    input clk , input rst , reg output [8:0] out
 );
 
     Phase_Acc ACC(rst,clk, bit_count , sign , phase);
