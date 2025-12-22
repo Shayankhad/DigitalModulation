@@ -1,4 +1,4 @@
-module and_gate (
+module And_gate (
     input  wire a,
     input  wire b,
     output wire out
