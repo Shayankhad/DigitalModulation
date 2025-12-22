@@ -3,12 +3,12 @@ module DDS_Data_Path (
 );
 
     Phase_Acc ACC(rst,clk, bit_count , sign , phase);
-    mux2to1 Rom_Addr(6)(a,b,sel,y);
-    mux2to1 Rom_Out(8)(a,b,sel,y);
-    Twos_comp Twos_1(data_in,data_out);
-    nor_reduction_6bit Nor(in,out);
-    and_gate And(a,b,out);
-    Twos_comp Twos_2(data_in,data_out);
+    mux2to1 Rom_Addr(6)(bit_count,bit_count_tows,phase,rom_in);
+    mux2to1 Rom_Out(8)(rom_out,8'd255,Rom_out_sel,rom_out_selected);
+    Twos_comp Twos_1(bit_count,bit_count_tows);
+    nor_reduction_6bit Nor(bit_count,bit_count_nor);
+    and_gate And(bit_count_nor,phase,Rom_out_sel);
+    Twos_comp Twos_2(rom_out_selected,out);
 
 
 endmodule
